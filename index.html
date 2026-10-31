@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#fff4f7" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="涵涵点菜" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="app-icon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="app-icon-192.png" />
+  <title>涵涵的点菜小屋</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="login-shell" id="login-panel">
+    <section class="login-card">
+      <span class="deco deco-heart" aria-hidden="true">♡</span>
+      <span class="deco deco-sparkle" aria-hidden="true">✦</span>
+      <div class="mascot" aria-hidden="true"><span class="chef-hat">♨</span><span class="dog-face">🐶</span></div>
+      <p class="eyebrow">WELCOME TO</p>
+      <h1>涵涵的点菜小屋</h1>
+      <p class="login-subtitle">小狗大厨已经准备好啦！<br />登录后开始挑选今天的美味吧</p>
+      <form class="login-form" id="login-form">
+        <label for="login-id">你的 ID</label>
+        <input id="login-id" name="id" type="text" placeholder="请输入 ID" autocomplete="username" required />
+        <label for="login-password">登录密码</label>
+        <input id="login-password" name="password" type="password" placeholder="请输入密码" autocomplete="current-password" required />
+        <p class="login-error" id="login-error" role="alert" aria-live="polite"></p>
+        <button class="button primary login-button" type="submit">登录点菜 <span aria-hidden="true">♡</span></button>
+        <button class="button secondary install-app" type="button">添加到手机主屏幕</button>
+      </form>
+      <p class="login-footnote">✿ 专属于涵涵的可爱菜单 ✿</p>
+    </section>
+  </main>
+
+  <main class="app-shell hidden" id="ordering-panel">
+    <section class="hero">
+      <div class="hero-mark" aria-hidden="true">🐶</div>
+      <div>
+        <p class="eyebrow">HANHAN'S LITTLE KITCHEN</p>
+        <h1>今天吃什么呀？</h1>
+        <p class="subtitle">跟着小狗大厨，按顺序挑选美味吧 ✿</p>
+      </div>
+    </section>
+
+    <nav class="steps" aria-label="点菜步骤">
+      <div class="step active" data-step="0"><span>01</span><strong>主菜</strong></div>
+      <div class="step-line"></div>
+      <div class="step" data-step="1"><span>02</span><strong>素菜</strong></div>
+      <div class="step-line"></div>
+      <div class="step" data-step="2"><span>03</span><strong>主食</strong></div>
+    </nav>
+
+    <section class="panel" id="selection-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="section-label" id="step-label">第 1 步 · 主菜</p>
+          <h2 id="step-title">先选一道主菜</h2>
+        </div>
+        <span class="counter" id="counter">已选 0 / 3</span>
+      </div>
+      <div class="dish-grid" id="dish-grid"></div>
+      <div class="actions">
+        <button class="button secondary hidden" id="back-button" type="button">返回上一步</button>
+        <button class="button primary" id="next-button" type="button" disabled>选择后继续</button>
+      </div>
+    </section>
+
+    <section class="result hidden" id="result-panel" aria-live="polite">
+      <div class="result-icon">✓</div>
+      <p class="section-label">今日菜单完成啦</p>
+      <h2>涵涵的专属菜单</h2>
+      <p class="result-note">搭配完成，开饭啦！✿</p>
+      <div class="menu-card" id="menu-card"></div>
+      <div class="order-status"><span class="status-dog" aria-hidden="true">🐶</span><span>您的小狗大厨已接单！<small>正在摇着尾巴为你准备美味～</small></span><span class="status-heart" aria-hidden="true">♥</span></div>
+      <button class="button primary" id="restart-button" type="button">重新点菜</button>
+    </section>
+  </main>
+  <dialog class="install-dialog" id="install-help" aria-labelledby="install-help-title">
+    <div class="dialog-mascot" aria-hidden="true">🐶</div>
+    <p class="section-label">带小狗大厨回家</p>
+    <h2 id="install-help-title">添加到手机主屏幕</h2>
+    <p class="install-help-text" id="install-help-text"></p>
+    <button class="button primary" id="close-install-help" type="button">知道啦</button>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
