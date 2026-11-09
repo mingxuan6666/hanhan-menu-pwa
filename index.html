@@ -32,6 +32,7 @@
         <button class="button secondary install-app" type="button">添加到手机主屏幕</button>
       </form>
       <p class="login-footnote">✿ 专属于涵涵的可爱菜单 ✿</p>
+      <a class="kitchen-entry" href="./kitchen.html">后厨接单入口 🐾</a>
     </section>
   </main>
 
@@ -74,7 +75,10 @@
       <h2>涵涵的专属菜单</h2>
       <p class="result-note">搭配完成，开饭啦！✿</p>
       <div class="menu-card" id="menu-card"></div>
-      <div class="order-status"><span class="status-dog" aria-hidden="true">🐶</span><span>您的小狗大厨已接单！<small>正在摇着尾巴为你准备美味～</small></span><span class="status-heart" aria-hidden="true">♥</span></div>
+      <div class="order-status" id="order-status" aria-live="polite"><span class="status-dog" aria-hidden="true">🐶</span><span id="order-status-copy">正在把菜单送到后厨…<small>等小狗大厨确认一下～</small></span><span class="status-heart" aria-hidden="true">♥</span></div>
+      <p class="order-number hidden" id="order-number"></p>
+      <p class="order-submit-error hidden" id="order-submit-error" role="alert"></p>
+      <button class="button secondary hidden" id="retry-order" type="button">重新发送订单</button>
       <button class="button primary" id="restart-button" type="button">重新点菜</button>
     </section>
   </main>
@@ -85,6 +89,17 @@
     <p class="install-help-text" id="install-help-text"></p>
     <button class="button primary" id="close-install-help" type="button">知道啦</button>
   </dialog>
+  <dialog class="tutorial-dialog" id="tutorial-dialog" aria-labelledby="tutorial-title">
+    <button class="tutorial-close" id="close-tutorial" type="button" aria-label="关闭教程">×</button>
+    <p class="section-label">小狗大厨的制作笔记</p>
+    <h2 id="tutorial-title">制作教程</h2>
+    <img class="tutorial-photo" id="tutorial-photo" alt="" />
+    <p class="tutorial-copy" id="tutorial-copy"></p>
+    <ol class="tutorial-steps" id="tutorial-steps"></ol>
+    <p class="tutorial-note">教程按你提供的流程整理。</p>
+  </dialog>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="backend-config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
