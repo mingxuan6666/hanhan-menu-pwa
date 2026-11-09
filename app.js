@@ -226,6 +226,13 @@ async function sendOrder(orderNumber) {
   retryButton.classList.add('hidden');
   errorText.classList.add('hidden');
   orderNumberElement.classList.add('hidden');
+
+  if (!backendConfig.supabaseUrl || !backendConfig.supabaseAnonKey) {
+    statusCopy.innerHTML = '您的小狗大厨已接单！<small>菜单已在本机确认好，摇着尾巴准备美味～</small>';
+    orderNumberElement.classList.remove('hidden');
+    return;
+  }
+
   statusCopy.innerHTML = '正在把菜单送到后厨…<small>等小狗大厨确认一下～</small>';
 
   try {
