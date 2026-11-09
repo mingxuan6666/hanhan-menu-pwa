@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hanhan-menu-v4';
+const CACHE_NAME = 'hanhan-menu-v5';
 const APP_FILES = [
   './index.html',
   './styles.css',
